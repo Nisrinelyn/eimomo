@@ -11,7 +11,7 @@
             <v-card-title class="bg-pink">{{title}}</v-card-title>
             <v-card-text class="pa-6">
               <template v-if="state==0">
-                <img v-if="state !== 1" src="https://u7.uidownload.com/vector/849/564/vector-cute-cartoon-fruit-vector-.jpg" class="rounded mx-auto d-block" alt="...">
+                <img v-if="state !== 1"  src="work3/home.png" class="rounded mx-auto d-block" alt="...">
 
                 <v-btn @click="shuffle()" color="purple" >START</v-btn>
                 
@@ -35,8 +35,10 @@
                 <v-btn @click="state=0" color="red">STOP PLAY</v-btn>
               </template>
               <template v-if="state==2">
-                <h1>Good You are the winner!!!</h1>
-                <img id="me"  src="work3/win.jpg" class="rounded mx-auto d-block" alt="...">
+
+                
+                <h1>VICTORY!!!</h1>
+                <img id="me"  src="work3/win.png" class="rounded mx-auto d-block" alt="...">
                 <br />
                 <v-btn @click="state=0" color="blue">OK</v-btn>
               </template>
