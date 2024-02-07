@@ -6,7 +6,26 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
+
+  <style>
+    .card-header {
+      background-color: #ae44db;
+      color: #fcfcfc;
+      border-color: #dd9aef;
+    }
+  </style>
+
+  <style>
+        .card-footer {
+            background-color: #ae44db;
+      color: #fcfcfc;
+      border-color: #dd9aef;
+
+          
+        }
+      </style>
   <body>
+    <body style="background-color: #dd9aef;"></body>
     <div id="myapp" class="container p-4"></div>
     <script type="text/babel">
      
@@ -59,10 +78,10 @@
 
 
       class App extends React.Component {
-        title  = <div><b>Work4 :</b> เกมจับคู่ภาพ ด้วย ReactJS
+        title  = <div className="text-center"><b>Work4 :</b> เกมจับคู่ภาพ ด้วย ReactJS
 </div>;
         
-        footer = <div>By 643021235-6 Nisrine Krodprakhon <br/> 
+        footer = <div className="text-center">By 643021235-6 Nisrine Krodprakhon <br/> 
         
            College of Computing, Khon Kaen University
           </div>;
@@ -105,8 +124,8 @@
             a.setState({ s: 0 });
             b.setState({ s: 0 });
           }
-          if (this.cardsCount == 0) {
-            this.setState({ page: 2 });
+          if (this.state.cardsCount == 2) { // แก้เป็น 2 แทน 0
+          this.setState({ scene: 2 }); // เปลี่ยน scene เป็น 2 เมื่อจำนวนไพ่เหลือเป็น 0
           }
       }
 
@@ -134,23 +153,28 @@
 }
 
 
-function MenuScene({app}) {
-        return (
-          <div>
-            <a href="index.html" className="btn btn-primary mx-2">
-              กลับหน้าหลัก
-            </a>
-            <button
-    className="btn btn-primary mx-2"
-    onClick={() => app.start()} 
-  > เริ่มเล่น </button>
+function MenuScene({ app }) {
+  return (
+    <div className="d-flex flex-column align-items-center">
+      <div className="d-flex justify-content-center mb-3">
+        <img src="work1/3to.gif" alt="Win Gif" width="1000" />
+      </div>
+      <div className="d-flex justify-content-center">
+        <a href="index.html" className="btn btn-primary mx-2">
+          กลับหน้าหลัก
+        </a>
+        <button className="btn btn-primary mx-2" onClick={() => app.start()}>
+          เริ่มเล่น
+        </button>
+      </div>
+    </div>
+  );
+}
 
-          </div>
-        );
-      }
+
       function GameScene({ app }) {
         return (
-          <div>
+          <div className="d-flex flex-column align-items-center">
             จำนวนภาพที่เหลือ {app.state.cardsCount} ใบ
             <div className="row p-2">{app.state.cards}</div>
             <button
@@ -162,16 +186,18 @@ function MenuScene({app}) {
           </div>
         );
       }
-      function WinScene({app}) {
-        return (
-          <div>
-            ยินดีด้วยคุณชนะแล้ว
-            <button className="btn btn-danger mx-2">
-              ตกลง
-            </button>
-          </div>
-        );
-      }
+      function WinScene({ app }) {
+  return (
+    <div className="d-flex flex-column align-items-center">
+      <p>ยินดีด้วยคุณชนะแล้ว</p>
+      <img src="work1/kuromi-win.gif" alt="Win Gif" width="500" />
+      <button className="btn btn-danger mx-2" onClick={() => app.setState({ scene: 1 })}>
+        ตกลง
+      </button>
+    </div>
+  );
+}
+
 
 
 
