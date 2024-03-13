@@ -39,25 +39,26 @@ function StudentTable({data, app}){
    </label>;  
   }
   function EditButton({std,app}){
-    return <button onClick={()=>app.edit(std)}>แก้ไข</button>
-   }
+    return <button style={{ backgroundColor: "#6a0dad", color: "white", border: "none", padding: "5px 10px", borderRadius: "5px" }} onClick={()=>app.edit(std)}>แก้ไข</button>
+}
 
-   function DeleteButton({std,app}){    
-    return <button onClick={()=>app.delete(std)}>ลบ</button>
-  }
+function DeleteButton({std,app}){    
+  return <button style={{ backgroundColor: "#9a0b0b", color: "white", border: "none", padding: "5px 10px", borderRadius: "5px" }} onClick={()=>app.delete(std)}>ลบ</button>
+}
 
  
 
 
 
 class App extends React.Component {
-    title = (
-      <Alert variant="info">
-        <b>Work6 :</b> Firebase
-      </Alert>
-    );
+  title = (
+    <Alert variant="info" style={{ backgroundColor: "#6A0DAD", color: "white" }}>
+      <b>Work6 :</b> Firebase
+    </Alert>
+  );
+  
     footer = (
-      <div>
+      <div style={{ textAlign: "center" }}>
         By Nisrine Krodprakhon ID : 643021235-6 <br />
         College of Computing, Khon Kaen University
       </div>
@@ -128,8 +129,8 @@ class App extends React.Component {
           <Card>
             <Card.Header>{this.title}</Card.Header>  
             <Card.Body>
-              <Button onClick={()=>this.readData()}>Read Data</Button>
-              <Button onClick={()=>this.autoRead()}>Auto Read</Button>
+            <Button style={{ backgroundColor: "#eec6ff", color: "black", border: "none", padding: "5px 10px", borderRadius: "5px" }} onClick={()=>this.readData()}>Read Data</Button>
+            <Button style={{ backgroundColor: "#eec6ff", color: "black", border: "none", padding: "5px 10px", borderRadius: "5px" }} onClick={()=>this.autoRead()}>Auto Read</Button>
               <div>
               <StudentTable data={this.state.students} app={this}/>  
               </div>
@@ -141,8 +142,8 @@ class App extends React.Component {
             <TextInput label="ชื่อ" app={this} value="stdfname" style={{width:120}}/>
             <TextInput label="สกุล" app={this} value="stdlname" style={{width:120}}/>
             <TextInput label="Email" app={this} value="stdemail" style={{width:150}} />        
-            <TextInput label="Phone" app={this} value="stdphone" style={{width:120}}/>
-            <Button onClick={()=>this.insertData()}>Save</Button>
+            
+            <Button style={{ backgroundColor: "#a2f1aa", color: "black", border: "none", padding: "5px 10px", borderRadius: "5px" }} onClick={()=>this.insertData()}>Save</Button>
             </Card.Footer>
             <Card.Footer>{this.footer}</Card.Footer>
           </Card>          
@@ -178,5 +179,3 @@ const firebaseConfig = {
   const container = document.getElementById("myapp");
   const root = ReactDOM.createRoot(container);
   root.render(<App />);
-
-
