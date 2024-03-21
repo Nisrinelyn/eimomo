@@ -156,6 +156,7 @@ class App extends React.Component {
   }
 	
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCfb49y55sxmdHxUAUyXOjbIWJY10rn2yM",
   authDomain: "web2566-80e89.firebaseapp.com",
